@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="shortcut icon" type="image/png" href="../../Content/favicon.ico" />
+    <link rel="shortcut icon" type="image/png" href="../Content/favicon.ico" />
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
     <link href="../Content/style.css" rel="stylesheet" />
@@ -34,34 +34,34 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand" href="/">FireDrink</a>
+                                <a class="navbar-brand" href="/">Shoy</a>
+                                <a class="navbar-brand" href="/FireDrink/">FireDrink</a>
                             </div>
 
                             <div class="collapse navbar-collapse" id="navigation-menu">
                                 <ul class="nav navbar-nav">
-
-                                    <li><a href="/CarritoCompras/">Cart</a></li>
-                                    <li><a href="/Tienda/">Tienda</a></li>
+                                    <li><a href="/FireDrink/CarritoCompras/">Cart</a></li>
+                                    <li><a href="/FireDrink/Tienda/">Tienda</a></li>
                                             <li class="dropdown">
                                                 <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mi Cuenta<b class="caret"></b></a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="/Cuenta/MisPedidos/">Mis Pedidos</a></li>
-                                                    <li><a href="/Cuenta/Logueo/">Iniciar Sesión</a></li>
-                                                    <li><a href="/Cuenta/Registrar/">Registrar</a></li>
+                                                    <li><a href="/FireDrink/Cuenta/MisPedidos/">Mis Pedidos</a></li>
+                                                    <li><a href="/FireDrink/Cuenta/Logueo/">Iniciar Sesión</a></li>
+                                                    <li><a href="/FireDrink/Cuenta/Registrar/">Registrar</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown">
                                                 <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mantenimiento<b class="caret"></b></a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="/Mantenimiento/ListarMarca/">Listado de Marcas</a></li>
-                                                    <li><a href="/Mantenimiento/ListarTipo/">Listado de Categorias</a></li>
-                                                    <li><a href="/Producto/">Listado de Productos</a></li>
+                                                    <li><a href="/FireDrink/Mantenimiento/ListarMarca/">Listado de Marcas</a></li>
+                                                    <li><a href="/FireDrink/Mantenimiento/ListarTipo/">Listado de Categorias</a></li>
+                                                    <li><a href="/FireDrink/Producto/">Listado de Productos</a></li>
                                                 </ul>
                                             </li>
                                             <li class="dropdown">
                                                 <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Seguimiento de Pedidos<b class="caret"></b></a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="/Seguimiento/">Listado de Pedido</a></li>
+                                                    <li><a href="/FireDrink/Seguimiento/">Listado de Pedido</a></li>
                                                 </ul>
                                             </li>
                                         <li>
@@ -105,7 +105,7 @@
             <h1 class="page-heading">Registro de datos para Pedido</h1>
         </div>
         <div class="panel-body">
-            <form action="Pago" method="post" id="account-creation_form" class="std box">
+            <form action="/FireDrink/Pedido/Pago/" method="post" id="account-creation_form" class="std box">
 
                 <div class="col-sm-12">
                     <div class="col-sm-6">
@@ -246,9 +246,9 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <button type="submit" class="btn btn-default">
+						<a href="/FireDrink/Pedido/Pago/" class="btn btn-default">
                             <span>Generar<i class="icon-chevron-right right"></i></span>
-                        </button>
+						</a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
