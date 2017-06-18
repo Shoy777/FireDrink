@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FireDrink.Models.PEDIDO>
+@{
+    ViewBag.Title = "Seguimiento de Pedidos";
+}
+
+<div class="well">
+    <ol class="breadcrumb">
+        <li>Seguimiento de Pedidos</li>
+        <li class="text-muted">Listado de Pedidos</li>
+    </ol>
+</div>
+<div class="well">
+	<h3 class="">Evaluar Solicitudes Pre - Venta</h3>
+	<div class="table-responsives">
+	
+		<table class="table table-bordered table-striped table-condensed table-hover">
+			<thead class="thead">
+				<tr>
+					<th>Código de Pedido</th>
+					<th>Cliente</th>
+					<th>Precio Total</th>
+					<th>Fecha Generado</th>
+                    <th>Estado</th>
+					<th>Detalle</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model) {
+                    <tr>
+                        <td> @Html.DisplayFor(modelItem => item.idpedido)</td>
+                        <td> @Html.DisplayFor(modelItem => item.USUARIO.NOMBRE) @Html.DisplayFor(modelItem => item.USUARIO.APPATERNO)</td>
+                        <td> @Html.DisplayFor(modelItem => item.totalpedido)</td>
+                        <td> @Html.DisplayFor(modelItem => item.fechaPedido)</td>
+                        <td>
+                            @if (item.estado.descrip.Equals("No pagado") || item.estado.descrip.Equals("Pagado"))
+                            {
+                                <a class="btn btn-primary btn-xs">@Html.DisplayFor(modelItem => item.estado.descrip)</a>
+                            }
+                            else if (item.estado.descrip.Equals("Aceptado"))
+                            {
+                                <a class="btn btn-danger btn-xs">@Html.DisplayFor(modelItem => item.estado.descrip)</a>    
+                            }
+                            else if (item.estado.descrip.Equals("En Produccion"))
+                            {
+                                <a class="btn btn-default btn-xs">@Html.DisplayFor(modelItem => item.estado.descrip)</a>
+                            }
+                            else if (item.estado.descrip.Equals("En Almacen"))
+                            {
+                                <a class="btn btn-info btn-xs">@Html.DisplayFor(modelItem => item.estado.descrip)</a>
+                            }
+                            else if (item.estado.descrip.Equals("Puesto en transporte"))
+                            {
+                                <a class="btn btn-warning btn-xs">@Html.DisplayFor(modelItem => item.estado.descrip)</a>    
+                            }
+                            else if (item.estado.descrip.Equals(" Entregado"))
+                            {
+                                <a class="btn btn-success btn-xs">@Html.DisplayFor(modelItem => item.estado.descrip)</a>    
+                            }
+                        </td>
+                        <td><a class="btn btn-warning btn-xs" href="Seguimiento/Seguimiento?idPedido=@item.idpedido">Ver detalles</a></td>
+                    </tr>
+                }
+			</tbody>
+		</table>
+	</div>
+</div>

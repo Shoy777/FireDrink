@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FireDrink.Models.PRODUCTO>
+@{
+    ViewBag.Title = "Catalogo de Productos | Tienda FireDrink";
+}
+
+<div class="row">
+    <div class="tab-content">
+	
+	@foreach (var productos in Model)
+{
+    <div class="col-sm-3">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <a href="@Url.Action("Detalle", new {idproducto = productos.COD_PRO })" title="Bebida">
+                    <img src='~/imagenes/productosimg/@productos.NOMFOTO' height="200" class="img-responsives" />
+                </a>
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <span class="label label-success block">
+                        <span>S./@productos.PRE_PRO</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="label label-default block">
+                        <span>@productos.DES_PRO</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="label label-default block">
+                        <span>@productos.TIPO.TIP_PRO</span>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <span class="label label-default block">
+                        <span>@productos.MARCA.MAR_PRO</span>
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <a class="label label-primary block" href="@Url.Action("Detalle", new {idproducto = productos.COD_PRO })" title="Ver">
+                        <span>Ver Producto</span>
+                    </a>
+                </div>
+                <div class="form-group">
+                    <a class="label label-danger block" href="@Url.Action("AddToCart", "CarritoCompras", new { id = productos.COD_PRO, cant=1})">
+                        <span>Llevalo Ya!</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+    </div>
+</div>
+

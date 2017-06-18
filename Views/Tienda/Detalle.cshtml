@@ -1,0 +1,49 @@
+﻿@model FireDrink.Models.PRODUCTO
+
+@{
+    ViewBag.Title = Model.DES_PRO + "| Bar Online FireDrink";
+}
+
+<div class="well">
+    <ol class="breadcrumb">
+        <li><a href="~/Tienda/">Catalogo</a></li>
+        <li class="text-muted">@Model.DES_PRO @Model.TIPO.TIP_PRO @Model.MARCA.MAR_PRO</li>
+    </ol>
+</div>
+<div class="well">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <img src='~/imagenes/productosimg/@Model.NOMFOTO' alt="" title="" height="200" class="img-responsive"/>
+        </div>
+        <div class="form-group">
+            <a href="@Url.Action("AddToCart", "CarritoCompras", new { id = @Model.COD_PRO, cant = 1 })" class="btn btn-success" title="Añadir">
+                <span>Añadir al carrito</span>
+            </a>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="form-group">
+            <h1 class="text-muted">@Model.DES_PRO</h1>
+        </div>
+        <div class="form-group">
+            <span class="text-muted">@Model.TIPO.TIP_PRO</span>
+        </div>
+        <div class="form-group">
+            <span class="text-muted">@Model.MARCA.MAR_PRO</span>
+        </div>
+        <div class="form-group">
+            <span class="text-muted">S/.@Model.PRE_PRO</span>
+        </div>
+        <div class="form-group">
+            <span class="label label-success">En stock</span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<script type="text/javascript">
+    $("#btnagregaaCarro").click(function () {
+        var cantidad = $("#quantity_wanted").val();
+        window.location.href = '/CarritoCompras/AddToCart?id=' +@Model.COD_PRO +'&cant=' + cantidad;
+    });
+</script>

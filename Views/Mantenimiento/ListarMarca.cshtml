@@ -1,0 +1,90 @@
+﻿@model IEnumerable<FireDrink.Models.FireDrinkBDContext>
+@using FireDrink.Models;
+@{
+    ViewBag.Title = "Listado de Marcas";
+    List<FireDrink.Models.Marca> marcas = ViewBag.marcas;
+    List<FireDrink.Models.Marca> marca = (List<FireDrink.Models.Marca>)Session["marca"];
+}
+
+<div class="well">
+    <ol class="breadcrumb">
+        <li>Mantenimiento</li>
+        <li class="text-muted">Listado de Marcas</li>
+    </ol>
+</div>
+<div class="well">
+    <div class="col-sm-12 form-group">
+        <a id="btnAgregar" data-toggle="modal" href="#ventana" class="btn btn-success">Agregar Nueva Marca</a>
+        <a id="btnEditar" data-toggle="modal" href="#ventana" class="btn btn-danger">Modificar Marca</a>
+    </div>
+
+    <div class="table-responsives">
+        <table class="table table-striped">
+            <thead class="thead">
+                <tr>
+                    <td>Numero de Marca</td>
+                    <td>Descripcion de Marca</td>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var m in marcas)
+            {
+                <tr>
+                    <td><p>@m.COD_MARCA</p></td>
+                    <td><p>@m.MAR_PRO</p></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
+    <!-- AGREGAR -->
+    <div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" >Registrar Nueva Marca</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("RegistrarMarca", "Mantenimiento")) {
+                        <div class="form-group">
+                            <input type="text"  class="form-control"  name="MAR_PRO" placeholder="Nueva Marca de Producto *" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Registrar" class="btn btn-primary" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODIFICAR -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" >Modificar Marca</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("EditarMarca", "Mantenimiento")) {
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="COD_MARCA" placeholder="Ingrese Numero de Marca" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text"  class="form-control" name="MAR_PRO" placeholder="Modifique Descripcion de Marca" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Modificar Marca" class="btn btn-primary" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>

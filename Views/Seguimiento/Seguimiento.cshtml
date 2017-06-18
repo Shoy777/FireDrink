@@ -1,0 +1,161 @@
+﻿@model IEnumerable<FireDrink.Models.pedido_productos>
+@{
+    ViewBag.Title = "Seguimiento";
+    var pedido = @ViewData["pedido"] as FireDrink.Models.PEDIDO;
+}
+
+<div class="well">
+    <ol class="breadcrumb">
+        <li><a href="~/Seguimiento/">Seguimiento de Pedidos</a></li>
+        <li class="text-muted">Pedido Número @pedido.idpedido</li>
+    </ol>
+</div>
+<div class="well">
+
+    <div class="form-group">
+        <h2>Estados</h2>
+        <label id="4" class="label label-primary">1. No Pagado</label>
+        <label id="4" class="label label-primary">2. Pagado</label>
+        <label id="5" class="label label-danger">3. Aceptado</label>
+        <label id="6" class="label label-default">4. En Produccion</label>
+        <label id="7" class="label label-info">5. En Almacen</label>
+        <label id="8" class="label label-warning">6. En Transporte</label>
+        <label id="9" class="label label-success">7. Entregado</label>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Código de Pedido</label>
+            <input id="txtIdPedido" type="text" class="form-control" disabled value='@pedido.idpedido' />
+        </div>
+        <div class="form-group">
+            <label>Cliente</label>
+            <input type="text" class="form-control" disabled value='@pedido.contacto_nom @pedido.contacto_ape' />
+        </div>
+        <div class="form-group">
+            <label>Distrito</label>
+            <input type="text" class="form-control" disabled  value="@pedido.UBIGEO.DISTRITO" />
+        </div>
+        <div class="form-group">
+            <label>Tipo de Pago</label>
+            <input type="text" class="form-control" disabled value="@pedido.TIPO_PAGO.descrip" />
+        </div>
+
+        <table id="idDetallePedido" class="table table-bordered table-striped table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>ID Producto</th>
+                    <th>Nombre</th>
+                    <th>Precio Vendido</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src="~/imagenes/productosimg/@item.PRODUCTO.NOMFOTO" width="80" height="50" /></td>
+                        <td> @Html.DisplayFor(modelItem => item.idproducto)</td>
+                        <td> @Html.DisplayFor(modelItem => item.PRODUCTO.DES_PRO)</td>
+                        <td> @Html.DisplayFor(modelItem => item.precio)</td>
+                        <td> @Html.DisplayFor(modelItem => item.cantidad)</td>
+                        <td>@Html.DisplayFor(modelItem => item.total)</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">Sub total</th>
+                    <th>@pedido.subTotal</th>
+                </tr>
+                <tr>
+                    <th colspan="5">IGV</th>
+                    <th>@pedido.igv</th>
+                </tr>
+                <tr>
+                    <th colspan="5">Total</th>
+                    <th>@pedido.totalpedido</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Fecha Pedido</label>
+            <input type="text" class="form-control" disabled value="@pedido.fechaPedido" />
+        </div>
+
+        <div class="form-group">
+            <label>Fecha de Entrega</label>
+            <input type="text" class="form-control" disabled value="@pedido.fechaentrega" />
+        </div>
+
+        <div class="form-group">
+            <label>Precio Total del Pedido</label>
+            <input type="text"  class="form-control" disabled value="@pedido.totalpedido" />
+        </div>
+
+        <div class="form-group">
+            <label>Observación del Cliente</label>
+            <input type="text" class="form-control" disabled value="@pedido.notas" />
+        </div>
+
+        <input type="hidden" value="@pedido.estado.descrip" id="estadofinal" />
+
+        <div class="form-group">
+            <label>Estado del Pedido</label>
+            @if (pedido.estado.descrip.Equals("No pagado") || pedido.estado.descrip.Equals("Pagado"))
+            {
+                <a class="btn btn-primary btn-xs">@Html.DisplayFor(modelItem => pedido.estado.descrip)</a>
+            }
+            else if (pedido.estado.descrip.Equals("Aceptado"))
+            {
+                <a class="btn btn-danger btn-xs">@Html.DisplayFor(modelItem => pedido.estado.descrip)</a>
+            }
+            else if (pedido.estado.descrip.Equals("En Produccion"))
+            {
+                <a class="btn btn-default btn-xs">@Html.DisplayFor(modelItem => pedido.estado.descrip)</a>
+            }
+            else if (pedido.estado.descrip.Equals("En Almacen"))
+            {
+                <a class="btn btn-info btn-xs">@Html.DisplayFor(modelItem => pedido.estado.descrip)</a>
+            }
+            else if (pedido.estado.descrip.Equals("Puesto en transporte"))
+            {
+                <a class="btn btn-warning btn-xs">@Html.DisplayFor(modelItem => pedido.estado.descrip)</a>
+            }
+            else if (pedido.estado.descrip.Equals(" Entregado"))
+            {
+                <a class="btn btn-success btn-xs">@Html.DisplayFor(modelItem => pedido.estado.descrip)</a>
+            }
+        </div>
+
+        <div class="form-group">
+            <a id="btnupestado" href="~/Seguimiento/cambiaEstado?idPedido=@pedido.idpedido" class="btn btn-primary btn-block">Continuar al siguiente estado</a>
+        </div>
+        
+        <div class="form-group">
+            <div id="btnRechazar" style="display:none;">
+                <a href="~/Seguimiento/rechazarPedido?idPedido=@pedido.idpedido" class="btn btn-danger btn-block">Rechazar Pedido</a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+	    document.getElementById("@pedido.idestado").className = "label label-success";
+	    var estado= $("#estadofinal").val();
+	    if (estado == "Entregado" || estado == "Entregado")
+	    {
+	        $('#btnupestado').addClass('disabled');
+	    }
+	    if (estado == "Pagado") {
+	        $('#btnRechazar').show();
+	    }
+	});
+</script>

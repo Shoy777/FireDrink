@@ -1,0 +1,69 @@
+﻿@model  FireDrink.Models.USUARIO
+@{
+    ViewBag.Title = "Registrar";
+    var correo = @ViewData["email_nuevo"];
+}
+<div class="well">
+    <form action="Registrar" method="post" id="account-creation_form">
+        <div class="form-group">
+            <h1 class="">Crear una cuenta</h1>
+        </div>
+        <h4 class="">Datos personales</h4>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="NOMBRE">Nombre <sup>*</sup></label>
+                <input type="text" class="form-control" id="NOMBRE" name="NOMBRE" value="@Model.NOMBRE" placeholder="Nombre" required />
+            </div>
+            <div class="form-group">
+                <label for="APPATERNO">Apellido Paterno<sup>*</sup></label>
+                <input type="text" class="form-control" id="APPATERNO" name="APPATERNO" value="@Model.APPATERNO" placeholder="Apellido Paterno" required />
+            </div>
+            <div class="form-group">
+                <label for="APEMATERNO">Apellido Materno<sup>*</sup></label>
+                <input type="text" class="form-control" id="APEMATERNO" name="APEMATERNO" value="@Model.APEMATERNO" placeholder="Apellido Materno" required />
+            </div>
+            <div class="form-group">
+                <label for="CORREO">Correo electrónico <sup>*</sup></label>
+                <input type="text" class="form-control" id="CORREO" name="CORREO" value="@Model.CORREO" placeholder="Correo" required />
+            </div>
+            <div class="form-group">
+                <label for="DNI">Número de DNI<sup>*</sup></label>
+                <input type="text" class="form-control" id="DNI" name="DNI" value="@Model.DNI" placeholder="DNI" required />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="TELEFONO">Número de Telefono<sup>*</sup></label>
+                <input type="text" class="form-control" id="TELEFONO" name="TELEFONO" value="@Model.TELEFONO" placeholder="Telefono" required />
+            </div>
+            <div class="form-group">
+                <label for="CELULAR">Número de Celular<sup>*</sup></label>
+                <input type="text" class="form-control" id="CELULAR" name="CELULAR" value="@Model.CELULAR" placeholder="Celular" required />
+            </div>
+            <div class="form-group">
+                <label>Fecha de nacimiento<sup>*</sup></label>
+                <input type="text" class="form-control fecha" id="FECNACIMIENTO" name="FECNACIMIENTO" required placeholder="Formato dia/mes/año" value="@Model.FECNACIMIENTO" />
+            </div>
+            <div class="form-group">
+                <label for="COD_UBIGEO">Distrito</label>
+                @Html.DropDownList("COD_UBIGEO", (IEnumerable<SelectListItem>)ViewBag.ubigeo, "Seleccione Distrito", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.COD_UBIGEO)
+            </div>
+            <div class="form-group">
+                <label for="CLAVE">Contraseña <sup>*</sup> (Mínimo 5 caracteres)</label>
+                <input type="password" class="form-control" name="CLAVE" id="CLAVE" placeholder="password" value="@Model.CLAVE" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    <span>Registrarse<i class="icon-chevron-right right"></i></span>
+                </button>
+            </div>
+            <div class="form-group">
+                <span><sup>*</sup>Campos requerido</span>
+            </div>
+        </div>
+	</form>
+</div>

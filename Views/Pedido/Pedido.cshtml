@@ -1,0 +1,140 @@
+﻿@model FireDrink.Models.PEDIDO
+@{
+    ViewBag.Title = "Pedido";
+}
+<div class="well">
+    <ul class="btn-group">
+        <li class="btn btn-default"><span><em>01.</em> Resumen</span></li>
+        <li class="btn btn-default"><span><em>02.</em> Iniciar sesión</span></li>
+        <li class="btn btn-success"><span><em>03.</em> Pedido</span></li>
+        <li class="btn btn-default"><span><em>04.</em> Pago</span></li>
+        <li class="btn btn-default"><span><em>05.</em> Completo</span></li>
+    </ul>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 class="page-heading">Registro de datos para Pedido</h1>
+        </div>
+        <div class="panel-body">
+            <form action="Pedido" method="post" id="account-creation_form" class="std box">
+
+                <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <h3 class="page-subheading">Personas de Contacto</h3>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre</label>
+                            <input value="@Model.contacto_nom" id="contacto_nom" name="contacto_nom" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Apellido</label>
+                            @Html.TextBoxFor(model => model.contacto_ape, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.contacto_ape)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">E-mail</label>
+                            @Html.TextBoxFor(model => model.contacto_mail, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.contacto_mail)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Telefono Celular</label>
+                            <input type="text" value="@Model.contacto_movil" name="contacto_movil" id="contacto_movil" class="form-control" onkeypress="javascript:return solonumeros(event)" />
+                            @Html.ValidationMessageFor(model => model.contacto_movil)
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3 class="">Datos del Pedido</h3>
+                        <div class="form-group">
+                            <label for="idtipo_compPago">Tipo de Comprobante:</label>
+                            @Html.DropDownList("idtipo_compPago", (IEnumerable<SelectListItem>)ViewBag.idtipo_compPago, String.Empty, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.idtipo_compPago)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Fecha de Entrega</label>
+                            <input class="fecha form-control" data-val="true" data-val-date="El campo fechaentrega debe ser una fecha." data-val-required="La fecha es obligatoria" required id="fechaentrega" name="fechaentrega" type="date" value="" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ruc">RUC</label>
+                            <input type="text" name="ruc" id="ruc" class="form-control" onkeypress="javascript:return solonumeros(event)" />
+                            @Html.ValidationMessageFor(model => model.ruc)
+                        </div>
+
+                        <div class="form-group">
+                            <label for="razonsocial">Razon Social</label>
+                            @Html.TextBoxFor(model => model.razonsocial, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.razonsocial)
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <h3 class="page-subheading">Direccion de Entrega</h3>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Direccion</label>
+                            @Html.TextBoxFor(model => model.entrega_dir, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.entrega_dir)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Urbanizacion</label>
+                            @Html.TextBoxFor(model => model.entrega_urba, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.entrega_urba)
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Distrito</label>
+
+                            @Html.DropDownList("iddistrito", (IEnumerable<SelectListItem>)ViewBag.iddistrito, String.Empty, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.iddistrito)
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Referencia</label>
+                            @Html.TextAreaFor(model => model.entrega_ref, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.entrega_ref)
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <h3 class="page-subheading">Detalle del Pedido</h3>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Notas</label>
+                            @Html.TextAreaFor(model => model.notas, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.notas)
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-default">
+                            <span>Generar<i class="icon-chevron-right right"></i></span>
+                        </button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    
+    <div class="clearfix"></div>
+</div>
+<script type="text/javascript">
+    function solonumeros(e) {
+
+        var key;
+
+        if (window.event) // IE
+        {
+            key = e.keyCode;
+        }
+        else if (e.which) // Netscape/Firefox/Opera
+        {
+            key = e.which;
+        }
+
+        if (key < 48 || key > 57) {
+            return false;
+        }
+
+        return true;
+    }
+</script>

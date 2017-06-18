@@ -1,0 +1,56 @@
+﻿@model FireDrink.Models.LoginModel
+@{
+    ViewBag.Title = "Logueo";
+
+    var mierror = @ViewData["error"] as string;
+}
+
+<div class="well">
+	<div class="col-xs-12 col-sm-6">
+        @using (Html.BeginForm("VerificaCliente", "Cuenta", FormMethod.Post, new { @id = "create-acount" }))
+        {
+			<h3>Crear una cuenta</h3>
+            <label style="color:red">@mierror</label>
+			<div class="clearfix">
+				<p>Escriba su correo electrónico para crear su cuenta</p>
+				<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
+				<div class="form-group">
+                    <label for="CORREO">Correo electrónico</label>
+                    @Html.TextBoxFor(model => model.CORREO, new { @class = "form-control", @placeholder = "email" })
+				</div>
+				<div class="submit">
+                    <button class="btn btn-success form-control" type="submit" id="SubmitCreate" name="SubmitCreate">
+						<span>
+							<i class="icon-user left"></i>
+							Crear una cuenta
+						</span>
+					</button>
+				</div>
+			</div>
+        }
+	</div>
+	<div class="col-xs-12 col-sm-6">
+        @using(Html.BeginForm("Logueo", "Cuenta", FormMethod.Post, new { @id = "login_form" })){
+			<h3>¿Ya está registrado?</h3>
+			<div class="clearfix">
+				<div class="form-group">
+                    <label for="CORREO">Correo electrónico</label>
+                    @Html.TextBoxFor(model => model.CORREO, new { @class = "form-control", @placeholder = "email" })
+                    @Html.ValidationMessageFor(model => model.CORREO, null, new { @class = "label label-danger" })
+				</div>
+				<div class="form-group">
+                    <label for="CLAVE">Contraseña</label>
+                    @Html.PasswordFor(model => model.CLAVE, new { @class = "form-control", @placeholder = "password" })
+                    @Html.ValidationMessageFor(model => model.CLAVE, null, new { @class = "label label-danger" })
+				</div>
+                <button type="submit" id="SubmitLogin" name="SubmitLogin" class="btn btn-success form-control">
+					<span>
+						<i class="fa fa-lo left"></i>
+						Iniciar sesión
+					</span>
+				</button>
+			</div>
+		}
+	</div>
+    <div class="clearfix"></div>
+	</div>

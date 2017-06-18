@@ -1,0 +1,94 @@
+﻿@model FireDrink.ViewModels.VistaModelCarritoCompras
+
+@{
+    ViewBag.Title = "Carrito de Compras | Bebidas FireDrink";
+}
+
+<div class="well">
+    <div class="col-sm-12">
+
+        <ul class="btn-group">
+            <li class="btn btn-success"><span><em>01.</em> Resumen</span></li>
+            <li class="btn btn-default"><span><em>02.</em> Iniciar sesión</span></li>
+            <li class="btn btn-default"><span><em>03.</em> Pedido</span></li>
+            <li class="btn btn-default"><span><em>04.</em> Pago</span></li>
+            <li class="btn btn-default"><span><em>05.</em> Completo</span></li>
+        </ul>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1><span>Su carrito contiene @Model.CarritoItems.Count productos</span></h1>
+            </div>
+            <div class="panel-body">
+
+                <div class="table-responsives">
+                    <table class="table table-bordered">
+                        <thead class="thead">
+                            <tr>
+                                <th>Producto</th>
+                                <th class="">Descripción</th>
+                                <th class="">Precio unitario</th>
+                                <th class="">Cant.</th>
+                                <th class="">&nbsp;</th>
+                                <th class="">SubTotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model.CarritoItems)
+                        {
+                            <tr id="row-@item.COD_CART">
+                                <td><img src='~/imagenes/productosimg/@item.PRODUCTO.NOMFOTO' alt="" title="" class="img-responsives" height="100"></td>
+                                <td>
+                                    <p class=""> @Html.ActionLink(item.PRODUCTO.DES_PRO, "Detalle", "Tienda", new { idproducto = item.COD_PRO }, null)</p>
+                                    <p class="">@item.PRODUCTO.TIPO.TIP_PRO</p>
+                                    <p class="">@item.PRODUCTO.MARCA.MAR_PRO</p>
+                                    <input type="hidden" id="txtIdProducto" value="@item.COD_PRO" />
+                                </td>
+                                <td>S/. @item.PRODUCTO.PRE_PRO</td>
+                                <td>
+                                    <input readonly="readonly" id="item-count" type="text" autocomplete="off" class="form-control" value="@item.Cantidad" />
+                                    <div style="margin-top: 5px;">
+                                        <a href="@Url.Action("DescontarToCart", "CarritoCompras", new { id = @item.COD_PRO, cant = 1, idCart = @item.COD_CART })" class="btn btn-default" title="Sustraer">
+                                            <span><i class="icon-minus">-</i></span>
+                                        </a>
+                                        <a href="@Url.Action("AddToCart", "CarritoCompras", new { id = @item.COD_PRO, cant = 1 })" class="btn btn-default" title="Añadir">
+                                            <span><i class="icon-plus">+</i></span>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="cart_delete text-center" data-title="Delete">
+                                    <a href="#" class="EliminarDelCarrito" data-id="@item.COD_CART">Elimina de tu carrito</a>
+                                </td>
+                                <td>S/. <span id="totalPrecio">@item.subTotal</span></td>
+                            </tr>
+
+                        }
+                        </tbody>
+                        <tfoot>
+                            <tr class="cart_total_price">
+                                <td colspan="5" class="text-right">
+                                    <span>Total</span>
+                                </td>
+                                <td colspan="1">
+                                    S/. @Model.CarritoTotal
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a href="@Url.Action("Pedido","Pedido")" class="btn btn-success" title="Generar Pedido">
+                <span>Generar Pedido<i class="icon-chevron-right right"></i></span>
+            </a>
+            <a href="@Url.Action("Index","Tienda",null)" class="btn btn-default" title="Continuar la compra">
+                <span><i class="icon-chevron-left left"></i>Continuar la compra</span>
+            </a>
+        </div>
+    </div>
+
+</div>

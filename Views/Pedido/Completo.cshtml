@@ -1,0 +1,138 @@
+﻿@model FireDrink.Models.PEDIDO
+
+@{
+    ViewBag.Title = "Completo";
+}
+<div class="well">
+    <ul class="btn-group">
+        <li class="btn btn-default"><span><em>01.</em> Resumen</span></li>
+        <li class="btn btn-default"><span><em>02.</em> Iniciar sesión</span></li>
+        <li class="btn btn-default"><span><em>03.</em> Pedido</span></li>
+        <li class="btn btn-default"><span><em>04.</em> Pago</span></li>
+        <li class="btn btn-success"><span><em>05.</em> Completo</span></li>
+    </ul>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 class="page-heading">Registro de pedido Completado</h1>
+        </div>
+        <div class="panel-body">
+            <form action="Pedido" method="post" id="account-creation_form">
+                <div align="center">
+                    <div class="alert alert-success" role="alert">
+                        Su Pedido Ha sido generado con Éxito!
+                    </div>
+                    <div class="form-group">
+                        <span>Usted realizara el pago mediante @Model.tipo_compPago.descrip con:</span>
+                    </div>
+                    <div class="alert alert-warning" role="alert"><h3 style="color:#000">N° Orden: @Model.idpedido</h3></div>
+                    <div class="form-group">
+                        <button onclick="javascript:generaPDF()" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Descargar PDF
+                        </button>
+                    </div>
+                    <div class="progress">
+                        <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">0%</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="xptContentMain" align="center">
+
+    <div style="margin:auto;"><img src="~/imagenes/LogoFireDrink.png" width="200" height="200" /></div>
+    <div><span style="text-align:right">Nro de Orden: @Model.idpedido</span></div>
+    <div><h3>PERSONA DE CONTACTO</h3></div>
+    <div><span><strong>Cliente:</strong></span><span>@Model.contacto_nom @Model.contacto_ape</span></div>
+    <div><h3>Datos del Pedido</h3></div>
+    <div><span><strong>Tipo de Entrega:</strong></span><span>@Model.tipoentrega</span></div>
+    <div><span><strong>Fecha de Entrega:</strong></span><span>@Model.fechaentrega</span></div>
+    <div><span><strong>Fecha del Pedido:</strong></span><span>@Model.fechaPedido</span></div>
+    <div><h3>Direccion de Entrega</h3></div>
+    <div><span><strong>Direccion:</strong></span><span>@Model.entrega_dir</span></div>
+    <div><span><strong>Urbanizacion:</strong></span><span>@Model.entrega_urba</span></div>
+    <div><span><strong>Distrito:</strong></span><span>Los @Model.UBIGEO.DISTRITO</span></div>
+
+    <table align="center">
+        <tr>
+            <td>Producto</td>
+            <td>Descripcion</td>
+            <td>Precio</td>
+            <td>Cantidad</td>
+            <td>SubTotal</td>
+        </tr>
+        @foreach (var i in Model.pedido_productos)
+        {
+            var subtotal = i.cantidad * i.precio;
+            <tr>
+                <td>@i.PRODUCTO.TIPO.TIP_PRO @i.PRODUCTO.MARCA.MAR_PRO</td>
+                <td>@i.PRODUCTO.DES_PRO</td>
+                <td>@i.precio</td>
+                <td>@i.cantidad</td>
+                <td>@subtotal</td>
+            </tr>
+        }
+        <tr>
+            <td colspan="4">Monto</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@Model.subTotal</td>
+        </tr>
+        <tr>
+            <td colspan="4">IGV</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@Model.igv</td>
+        </tr>
+        <tr>
+            <td colspan="4">Total a Pagar</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@Model.totalpedido</td>
+        </tr>
+    </table>
+
+</div>
+<script src="~/Content/js/jspdf.debug.js" type="text/javascript"></script>
+<script type="text/javascript">
+    function generaPDF() {
+        var pdf = new jsPDF('p', 'pt', 'letter');
+        source = $('#xptContentMain')[0];
+        cambiaBarraProgress('30%')
+        specialElementHandlers = {
+            '#bypassme': function (element, renderer) {
+                return true
+            }
+        };
+        cambiaBarraProgress('60%')
+        margins = {
+            top: 40,
+            bottom: 60,
+            left: 40,
+            width: 522
+        };
+        cambiaBarraProgress('80%')
+        pdf.fromHTML(
+                source, // HTML string or DOM elem ref.
+                margins.left, // x coord
+                margins.top, {// y coord
+                    'width': margins.width, // max width of content on PDF
+                    'elementHandlers': specialElementHandlers
+                },
+
+        function (dispose) {
+            pdf.save("miPDF");
+        }
+        , margins);
+        cambiaBarraProgress('100%')
+    }
+
+    function cambiaBarraProgress(Porcentaje) {
+        document.getElementById("progress").style.width = Porcentaje;
+        document.getElementById("progress").innerHTML = Porcentaje;
+    }
+</script>

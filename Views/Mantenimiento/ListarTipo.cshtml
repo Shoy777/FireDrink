@@ -1,0 +1,91 @@
+﻿@model IEnumerable<FireDrink.Models.FireDrinkBDContext>
+@using FireDrink.Models;
+@{
+    ViewBag.Title = "Listado de Categorias";
+    List<FireDrink.Models.Tipo> tipos = ViewBag.tipos;
+    List<FireDrink.Models.Tipo> tipo = (List<FireDrink.Models.Tipo>)Session["tipo"];
+}
+
+<div class="well">
+    <ol class="breadcrumb">
+        <li>Mantenimiento</li>
+        <li class="text-muted">Listado de Categorias</li>
+    </ol>
+</div>
+<div class="well">
+    <div class="col-sm-12 form-group">
+        <a id="btnAgregar" data-toggle="modal" href="#ventana" class="btn btn-success">Agregar Nueva Categoria</a>
+        <a id="btnEditar" data-toggle="modal" href="#ventana" class="btn btn-danger">Modificar Categoria</a>
+    </div>
+
+</div>
+        <div class="table-responsives">
+            <table class="table table-striped">
+                <thead class="thead">
+                    <tr>
+                        <td>Numero de Tipo</td>
+                        <td>Descripcion de Tipo</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var t in tipos)
+                    {
+                        <tr>
+                            <td><p>@t.COD_TIPO</p></td>
+                            <td><p>@t.TIP_PRO</p></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    <div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" >Registrar Nueva Categoria</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("RegistrarTipo", "Mantenimiento")) {
+                        <div class="form-group">
+                            <input type="text"  class="form-control" name="TIP_PRO" placeholder="Nuevo Categoria de Producto *" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Registrar" class="btn btn-primary" />
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODIFICAR -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" >Modificar Categoria</h4>
+                </div>
+                <div class="modal-body">
+                    @using (Html.BeginForm("EditarTipo", "Mantenimiento"))
+                    {
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="COD_TIPO" placeholder="Ingrese Numero de Categoria" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="TIP_PRO" placeholder="Modifique Descripcion de Categoria" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Modificar Categoria" class="btn btn-primary" />
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>

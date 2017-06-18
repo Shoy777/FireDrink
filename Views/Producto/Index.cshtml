@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "ListarProducto";
+    List<FireDrink.Models.Producto> productos = ViewBag.producto;
+    List<FireDrink.Models.Producto> carro = (List<FireDrink.Models.Producto>)Session["carro"];
+}
+
+<div class="well">
+    <ol class="breadcrumb">
+        <li>Productos</li>
+        <li class="text-muted">Listado de Productos</li>
+    </ol>
+</div>
+
+<div class="well">
+    <div class="col-sm-12 form-group">
+        <a href="@Url.Action("Create","Producto")" class="btn btn-primary">Agregar Nueva Producto</a>
+    </div>
+
+    <div class="table-responsives">
+        <table class="table table-striped">
+            <thead class="thead">
+                <tr>
+                    <td>Numero de Producto</td>
+                    <td>Descripcion de Tipo</td>
+                    <td>Descripcion de Marca</td>
+                    <td>Descripcion de Producto</td>
+                    <td>Precio</td>
+                    <td>Imagen</td>
+                    <td>Tipo de Imagen</td>
+                    <td>Ver Producto</td>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var t in productos)
+            {
+                <tr>
+                    <td><p>@t.COD_PRO</p></td>
+                    <td><p>@t.COD_TIPO</p></td>
+                    <td><p>@t.COD_MARCA</p></td>
+                    <td><p>@t.DES_PRO</p></td>
+                    <td><p>@t.PRE_PRO</p></td>
+                    <td>
+                            <img src='~/imagenes/productosimg/@t.NOMFOTO' alt="" title="" height="50" />
+                    </td>
+                    <td><p>@t.NOMFOTO</p></td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = t.COD_PRO })
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+</div>
