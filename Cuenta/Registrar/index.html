@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Crear Cuenta | Bar Online FireDrink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" type="image/png" href="../../Content/favicon.ico" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <link href="../../Content/style.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div class="overlay">
+
+        <div class="container">
+
+            <div class="row">
+                <nav class="navbar">
+                    <div class="navbar-inverse">
+                        <div class="container">
+
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-menu" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/">FireDrink</a>
+                            </div>
+
+                            <div class="collapse navbar-collapse" id="navigation-menu">
+                                <ul class="nav navbar-nav">
+
+                                    <li><a href="/CarritoCompras/">Cart</a></li>
+                                    <li><a href="/Tienda/">Tienda</a></li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mi Cuenta<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Cuenta/MisPedidos/">Mis Pedidos</a></li>
+                                                    <li><a href="/Cuenta/Logueo/">Iniciar Sesión</a></li>
+                                                    <li><a href="/Cuenta/Registrar/">Registrar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mantenimiento<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Mantenimiento/ListarMarca/">Listado de Marcas</a></li>
+                                                    <li><a href="/Mantenimiento/ListarTipo/">Listado de Categorias</a></li>
+                                                    <li><a href="/Producto/">Listado de Productos</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Seguimiento de Pedidos<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Seguimiento/">Listado de Pedido</a></li>
+                                                </ul>
+                                            </li>
+                                        <li>
+                                            <a class="login" href="#" rel="nofollow" title="Entrar a tu cuenta de cliente">
+                                                Salir
+                                            </a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+
+            <div class="row">
+                <div class="well">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <form id="searchbox" method="get" action="#">
+                            <input class="form-control" type="text" id="search_query_top" name="search_query_top" placeholder="Buscar" autocomplete="off">
+                            <button type="submit" class="btn btn-default" style="position: absolute; z-index: 1000; right: 0; top: 0; ">
+                                <span>Buscar</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+				
+<div class="well">
+    <form action="#" method="post" id="account-creation_form">
+        <div class="form-group">
+            <h1 class="">Crear una cuenta</h1>
+        </div>
+        <h4 class="">Datos personales</h4>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="NOMBRE">Nombre <sup>*</sup></label>
+                <input type="text" class="form-control" id="NOMBRE" name="NOMBRE" placeholder="Nombre" required />
+            </div>
+            <div class="form-group">
+                <label for="APPATERNO">Apellido Paterno<sup>*</sup></label>
+                <input type="text" class="form-control" id="APPATERNO" name="APPATERNO" placeholder="Apellido Paterno" required />
+            </div>
+            <div class="form-group">
+                <label for="APEMATERNO">Apellido Materno<sup>*</sup></label>
+                <input type="text" class="form-control" id="APEMATERNO" name="APEMATERNO" placeholder="Apellido Materno" required />
+            </div>
+            <div class="form-group">
+                <label for="CORREO">Correo electrónico <sup>*</sup></label>
+                <input type="text" class="form-control" id="CORREO" name="CORREO" placeholder="Correo" required />
+            </div>
+            <div class="form-group">
+                <label for="DNI">Número de DNI<sup>*</sup></label>
+                <input type="text" class="form-control" id="DNI" name="DNI" placeholder="DNI" required />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="TELEFONO">Número de Telefono<sup>*</sup></label>
+                <input type="text" class="form-control" id="TELEFONO" name="TELEFONO" placeholder="Telefono" required />
+            </div>
+            <div class="form-group">
+                <label for="CELULAR">Número de Celular<sup>*</sup></label>
+                <input type="text" class="form-control" id="CELULAR" name="CELULAR" placeholder="Celular" required />
+            </div>
+            <div class="form-group">
+                <label>Fecha de nacimiento<sup>*</sup></label>
+                <input type="text" class="form-control fecha" id="FECNACIMIENTO" name="FECNACIMIENTO" required placeholder="Formato dia/mes/año" />
+            </div>
+            <div class="form-group">
+                <label for="COD_UBIGEO">Distrito</label>
+                <select class="form-control" data-val="true" data-val-number="El campo COD_UBIGEO debe ser un número." data-val-required="El campo COD_UBIGEO es obligatorio." id="COD_UBIGEO" name="COD_UBIGEO"><option value="">Seleccione Distrito</option>
+					<option value="70101">Callao</option>
+					<option value="70102">Bellavista</option>
+					<option value="70103">Carmen de la Legua Reynoso</option>
+					<option value="70104">La Perla</option>
+					<option value="70105">La Punta</option>
+					<option value="70106">Ventanilla</option>
+					<option value="150101">Lima</option>
+					<option value="150102">Ancon</option>
+					<option value="150103">Ate</option>
+					<option value="150104">Barranco</option>
+					<option value="150105">Bre&#241;a</option>
+					<option value="150106">Carabayllo</option>
+					<option value="150107">Chaclacayo</option>
+					<option value="150108">Chorrillos</option>
+					<option value="150109">Cieneguilla</option>
+					<option value="150110">Comas</option>
+					<option value="150111">El Agustino</option>
+					<option value="150112">Independencia</option>
+					<option value="150113">Jesus Maria</option>
+					<option value="150114">La Molina</option>
+					<option value="150115">La Victoria</option>
+					<option value="150116">Lince</option>
+					<option value="150117">Los Olivos</option>
+					<option value="150118">Lurigancho</option>
+					<option value="150119">Lurin</option>
+					<option value="150120">Magdalena del Mar</option>
+					<option value="150121">Pueblo Libre</option>
+					<option value="150122">Miraflores</option>
+					<option value="150123">Pachacamac</option>
+					<option value="150124">Pucusana</option>
+					<option value="150125">Puente Piedra</option>
+					<option value="150126">Punta Hermosa</option>
+					<option value="150127">Punta Negra</option>
+					<option value="150128">Rimac</option>
+					<option value="150129">San Bartolo</option>
+					<option value="150130">San Borja</option>
+					<option value="150131">San Isidro</option>
+					<option value="150132">San Juan de Lurigancho</option>
+					<option value="150133">San Juan de Miraflores</option>
+					<option value="150134">San Luis</option>
+					<option value="150135">San Martin de Porres</option>
+					<option value="150136">San Miguel</option>
+					<option value="150137">Santa Anita</option>
+					<option value="150138">Santa Maria del Mar</option>
+					<option value="150139">Santa Rosa</option>
+					<option value="150140">Santiago de Surco</option>
+					<option value="150141">Surquillo</option>
+					<option value="150142">Villa el Salvador</option>
+					<option value="150143">Villa Maria del Triunfo</option>
+				</select>
+                <span class="field-validation-valid" data-valmsg-for="COD_UBIGEO" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group">
+                <label for="CLAVE">Contraseña <sup>*</sup> (Mínimo 5 caracteres)</label>
+                <input type="password" class="form-control" name="CLAVE" id="CLAVE" placeholder="password" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    <span>Registrarse<i class="icon-chevron-right right"></i></span>
+                </button>
+            </div>
+            <div class="form-group">
+                <span><sup>*</sup>Campos requerido</span>
+            </div>
+        </div>
+	</form>
+</div>
+
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="modal fade" id="modalMensaje" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="padding-bottom: 15px;">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title text-danger">Mensaje</h4>
+                </div>
+                <div class="modal-body">
+                    <span id="textoMsj" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="well">
+            <div class="col-sm-3">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Información de Delivery</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Términos &amp; Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Servicio al Cliente</h4>
+                <ul>
+                    <li><a href="#">Contáctenos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Mapa del Sitio</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Extras</h4>
+                <ul>
+                    <li><a href="#">Vouchers de Regalo</a></li>
+                    <li><a href="#">Afiliados</a></li>
+                    <li><a href="#">Especiales</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Mi Cuenta</h4>
+                <ul>
+                    <li><a href="#">Mi Cuenta</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+    </footer>
+
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../Content/js/funciones.js"></script>
+
+</body>
+</html>

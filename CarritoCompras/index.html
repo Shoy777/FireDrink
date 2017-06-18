@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Carrito de Compras | Bar Online FireDrink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" type="image/png" href="../../Content/favicon.ico" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <link href="../Content/style.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div class="overlay">
+
+        <div class="container">
+
+            <div class="row">
+                <nav class="navbar">
+                    <div class="navbar-inverse">
+                        <div class="container">
+
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-menu" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/">FireDrink</a>
+                            </div>
+
+                            <div class="collapse navbar-collapse" id="navigation-menu">
+                                <ul class="nav navbar-nav">
+
+                                    <li><a href="/CarritoCompras/">Cart</a></li>
+                                    <li><a href="/Tienda/">Tienda</a></li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mi Cuenta<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Cuenta/MisPedidos/">Mis Pedidos</a></li>
+                                                    <li><a href="/Cuenta/Logueo/">Iniciar Sesión</a></li>
+                                                    <li><a href="/Cuenta/Registrar/">Registrar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mantenimiento<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Mantenimiento/ListarMarca/">Listado de Marcas</a></li>
+                                                    <li><a href="/Mantenimiento/ListarTipo/">Listado de Categorias</a></li>
+                                                    <li><a href="/Producto/">Listado de Productos</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Seguimiento de Pedidos<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Seguimiento/">Listado de Pedido</a></li>
+                                                </ul>
+                                            </li>
+                                        <li>
+                                            <a class="login" href="#" rel="nofollow" title="Entrar a tu cuenta de cliente">
+                                                Salir
+                                            </a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+
+            <div class="row">
+                <div class="well">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <form id="searchbox" method="get" action="#">
+                            <input class="form-control" type="text" id="search_query_top" name="search_query_top" placeholder="Buscar" autocomplete="off">
+                            <button type="submit" class="btn btn-default" style="position: absolute; z-index: 1000; right: 0; top: 0; ">
+                                <span>Buscar</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+		<div class="well">
+    <div class="col-sm-12">
+
+        <ul class="btn-group">
+            <li class="btn btn-success"><span><em>01.</em> Resumen</span></li>
+            <li class="btn btn-default"><span><em>02.</em> Iniciar sesión</span></li>
+            <li class="btn btn-default"><span><em>03.</em> Pedido</span></li>
+            <li class="btn btn-default"><span><em>04.</em> Pago</span></li>
+            <li class="btn btn-default"><span><em>05.</em> Completo</span></li>
+        </ul>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1><span>Su carrito contiene 2 productos</span></h1>
+            </div>
+            <div class="panel-body">
+
+                <div class="table-responsives">
+                    <table class="table table-bordered">
+                        <thead class="thead">
+                            <tr>
+                                <th>Producto</th>
+                                <th class="">Descripción</th>
+                                <th class="">Precio unitario</th>
+                                <th class="">Cant.</th>
+                                <th class="">&nbsp;</th>
+                                <th class="">SubTotal</th>
+                            </tr>
+                        </thead>
+						<tbody>
+                            <tr id="row-16">
+                                <td><img src='../imagenes/productosimg/CervezaBarenaCaja.jpg' alt="" title="" class="img-responsives" height="100"></td>
+                                <td>
+                                    <p class=""> <a href="/Tienda/Detalle?idproducto=1">CAJA 12 UNIDADESs</a></p>
+                                    <p class="">CERVEZA</p>
+                                    <p class="">BARENA</p>
+                                    <input type="hidden" id="txtIdProducto" value="1" />
+								</td>
+                                <td>S/. 56,65</td>
+                                <td>
+                                    <input readonly="readonly" id="item-count" type="text" autocomplete="off" class="form-control" value="5" />
+                                    <div style="margin-top: 5px;">
+                                        <a href="#" class="btn btn-default" title="Sustraer">
+                                            <span><i class="icon-minus">-</i></span>
+                                        </a>
+                                        <a href="#" class="btn btn-default" title="Añadir">
+                                            <span><i class="icon-plus">+</i></span>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="cart_delete text-center" data-title="Delete">
+                                    <a href="#" class="EliminarDelCarrito" data-id="16">Elimina de tu carrito</a>
+                                </td>
+                                <td>S/. <span id="totalPrecio">283,25</span></td>
+                            </tr>
+                            <tr id="row-17">
+                                <td><img src='../imagenes/productosimg/CervezaBrahmaCaja.jpg' alt="" title="" class="img-responsives" height="100"></td>
+                                <td>
+                                    <p class=""> <a href="/Tienda/Detalle?idproducto=2">CAJA 12 UNIDADES</a></p>
+                                    <p class="">CERVEZA</p>
+                                    <p class="">BRAHMA</p>
+                                    <input type="hidden" id="txtIdProducto" value="2" />
+                                <td>S/. 56,65</td>
+                                <td>
+                                    <input readonly="readonly" id="item-count" type="text" autocomplete="off" class="form-control" value="2" />
+                                    <div style="margin-top: 5px;">
+                                        <a href="#" class="btn btn-default" title="Sustraer">
+                                            <span><i class="icon-minus">-</i></span>
+                                        </a>
+                                        <a href="#" class="btn btn-default" title="Añadir">
+                                            <span><i class="icon-plus">+</i></span>
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="cart_delete text-center" data-title="Delete">
+                                    <a href="#" class="EliminarDelCarrito" data-id="17">Elimina de tu carrito</a>
+                                </td>
+                                <td>S/. <span id="totalPrecio">113,30</span></td>
+                            </tr>
+						</tbody>
+                        <tfoot>
+                            <tr class="cart_total_price">
+                                <td colspan="5" class="text-right">
+                                    <span>Total</span>
+                                </td>
+                                <td colspan="1">
+                                    S/. 396,55
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+					lll
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a href="/Pedido/" class="btn btn-success" title="Generar Pedido">
+                <span>Generar Pedido<i class="icon-chevron-right right"></i></span>
+            </a>
+            <a href="/Tienda/" class="btn btn-default" title="Continuar la compra">
+                <span><i class="icon-chevron-left left"></i>Continuar la compra</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+				
+            </div>
+            
+        </div>
+    </div>
+    
+    <footer class="well">
+            <div class="col-sm-3">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Información de Delivery</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Términos &amp; Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Servicio al Cliente</h4>
+                <ul>
+                    <li><a href="#">Contáctenos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Mapa del Sitio</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Extras</h4>
+                <ul>
+                    <li><a href="#">Vouchers de Regalo</a></li>
+                    <li><a href="#">Afiliados</a></li>
+                    <li><a href="#">Especiales</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Mi Cuenta</h4>
+                <ul>
+                    <li><a href="#">Mi Cuenta</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+    </footer>
+
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <script src="../Scripts/bootstrap.js"></script>
+    <script src="../Content/js/funciones.js"></script>
+
+</body>
+</html>

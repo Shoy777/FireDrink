@@ -1,0 +1,84 @@
+﻿h1, h2, h3,
+h4, h5, h6, body{
+    font-family: cursive, Tahoma, sans-serif;
+}
+body {
+    font-size: 13px;
+    line-height: 18px;
+    color: #333;
+    background-color: #f1f1f1;
+    /*
+    background-image: url('bar-drinks.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    */
+}
+
+::selection {
+    background-color: #31b7bc;
+    color: white;
+}
+.overlay{
+    /*background-color: rgba(0,255,255,.25);*/
+    background-color: #f1f1f1;
+    padding-bottom: 30px;
+}
+.modal {
+    background-color: rgba(0,0,0,.5);
+}    
+.img-responsives {
+    max-width: 100%;
+    margin: auto;
+}
+.panel-success > .panel-heading {
+    text-align: center;
+    padding: 0;
+    background-color: #fff;
+}
+.panel {
+    padding: 0px;
+}
+.block {
+    display:block;
+    line-height: 30px;
+}
+.form-group {
+    margin-bottom: 5px;
+}
+.well{
+    background-color: rgba(255,255,255,.75);
+}
+.well .breadcrumb{
+    background-color: transparent;
+}
+.table-responsives {
+    overflow-x: auto;
+}
+.thead {
+    background-color: #b1c7d5;
+}
+table{
+    background-color: #fff;
+}
+#contenedor {
+    background-color: rgba(255,255,255,.8);
+    color: #000;
+    padding: 15px;
+}
+.contenido {
+    padding: 45px;
+    font-size: 15px;
+    text-align: justify;
+    color: #000;
+    font-weight: bold;
+}
+ul.btn-group{padding-left:0;}
+
+footer.well{
+    margin-bottom: 0;
+    border-radius: 0;
+}

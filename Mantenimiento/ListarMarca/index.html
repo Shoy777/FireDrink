@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Listado de Marcas | Bar Online FireDrink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" type="image/png" href="../../Content/favicon.ico" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <link href="../../Content/style.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div class="overlay">
+
+        <div class="container">
+
+            <div class="row">
+                <nav class="navbar">
+                    <div class="navbar-inverse">
+                        <div class="container">
+
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-menu" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/">FireDrink</a>
+                            </div>
+
+                            <div class="collapse navbar-collapse" id="navigation-menu">
+                                <ul class="nav navbar-nav">
+
+                                    <li><a href="/CarritoCompras/">Cart</a></li>
+                                    <li><a href="/Tienda/">Tienda</a></li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mi Cuenta<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Cuenta/MisPedidos/">Mis Pedidos</a></li>
+                                                    <li><a href="/Cuenta/Logueo/">Iniciar Sesión</a></li>
+                                                    <li><a href="/Cuenta/Registrar/">Registrar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mantenimiento<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Mantenimiento/ListarMarca/">Listado de Marcas</a></li>
+                                                    <li><a href="/Mantenimiento/ListarTipo/">Listado de Categorias</a></li>
+                                                    <li><a href="/Producto/">Listado de Productos</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Seguimiento de Pedidos<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Seguimiento/">Listado de Pedido</a></li>
+                                                </ul>
+                                            </li>
+                                        <li>
+                                            <a class="login" href="#" rel="nofollow" title="Entrar a tu cuenta de cliente">
+                                                Salir
+                                            </a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+
+            <div class="row">
+                <div class="well">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <form id="searchbox" method="get" action="#">
+                            <input class="form-control" type="text" id="search_query_top" name="search_query_top" placeholder="Buscar" autocomplete="off">
+                            <button type="submit" class="btn btn-default" style="position: absolute; z-index: 1000; right: 0; top: 0; ">
+                                <span>Buscar</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+				
+				
+<div class="well">
+    <ol class="breadcrumb">
+        <li>Mantenimiento</li>
+        <li class="text-muted">Listado de Marcas</li>
+    </ol>
+</div>
+<div class="well">
+    <div class="col-sm-12 form-group">
+        <a id="btnAgregar" data-toggle="modal" href="#ventana" class="btn btn-success">Agregar Nueva Marca</a>
+        <a id="btnEditar" data-toggle="modal" href="#ventana" class="btn btn-danger">Modificar Marca</a>
+    </div>
+
+    <div class="table-responsives">
+        <table class="table table-striped">
+            <thead class="thead">
+                <tr>
+                    <td>Numero de Marca</td>
+                    <td>Descripcion de Marca</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><p>1</p></td>
+                    <td><p>BARENA</p></td>
+                </tr>
+                <tr>
+                    <td><p>2</p></td>
+                    <td><p>BRAHMA</p></td>
+                </tr>
+                <tr>
+                    <td><p>3</p></td>
+                    <td><p>CORONA</p></td>
+                </tr>
+                <tr>
+                    <td><p>4</p></td>
+                    <td><p>CRISTAL</p></td>
+                </tr>
+                <tr>
+                    <td><p>5</p></td>
+                    <td><p>CUSQUE&#209;A</p></td>
+                </tr>
+                <tr>
+                    <td><p>6</p></td>
+                    <td><p>HEINEKEN</p></td>
+                </tr>
+                <tr>
+                    <td><p>7</p></td>
+                    <td><p>PILSEN CALLAO</p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    <!-- AGREGAR -->
+    <div class="modal fade" id="modalAgregar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" >Registrar Nueva Marca</h4>
+                </div>
+                <div class="modal-body">
+					<form action="#" method="post">                        <div class="form-group">
+                        <input type="text"  class="form-control"  name="MAR_PRO" placeholder="Nueva Marca de Producto *" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Registrar" class="btn btn-primary" />
+                        </div>
+					</form>
+				</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODIFICAR -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" >Modificar Marca</h4>
+                </div>
+                <div class="modal-body">
+					<form action="#" method="post">                        <div class="form-group">
+                            <input type="text" class="form-control" name="COD_MARCA" placeholder="Ingrese Numero de Marca" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text"  class="form-control" name="MAR_PRO" placeholder="Modifique Descripcion de Marca" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Modificar Marca" class="btn btn-primary" />
+                        </div>
+					</form>
+				</div>
+            </div>
+        </div>
+    </div>
+				
+				
+
+            </div>
+            
+        </div>
+    </div>
+    
+    <footer class="well">
+            <div class="col-sm-3">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Información de Delivery</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Términos &amp; Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Servicio al Cliente</h4>
+                <ul>
+                    <li><a href="#">Contáctenos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Mapa del Sitio</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Extras</h4>
+                <ul>
+                    <li><a href="#">Vouchers de Regalo</a></li>
+                    <li><a href="#">Afiliados</a></li>
+                    <li><a href="#">Especiales</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Mi Cuenta</h4>
+                <ul>
+                    <li><a href="#">Mi Cuenta</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+    </footer>
+
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../Content/js/funciones.js"></script>
+
+</body>
+</html>

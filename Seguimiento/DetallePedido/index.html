@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Detalle de Pedido | Bar Online FireDrink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" type="image/png" href="../../Content/favicon.ico" />
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+    <link href="../../Content/style.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <div class="overlay">
+
+        <div class="container">
+
+            <div class="row">
+                <nav class="navbar">
+                    <div class="navbar-inverse">
+                        <div class="container">
+
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation-menu" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/">FireDrink</a>
+                            </div>
+
+                            <div class="collapse navbar-collapse" id="navigation-menu">
+                                <ul class="nav navbar-nav">
+
+                                    <li><a href="/CarritoCompras/">Cart</a></li>
+                                    <li><a href="/Tienda/">Tienda</a></li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mi Cuenta<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Cuenta/MisPedidos/">Mis Pedidos</a></li>
+                                                    <li><a href="/Cuenta/Logueo/">Iniciar Sesión</a></li>
+                                                    <li><a href="/Cuenta/Registrar/">Registrar</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Mantenimiento<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Mantenimiento/ListarMarca/">Listado de Marcas</a></li>
+                                                    <li><a href="/Mantenimiento/ListarTipo/">Listado de Categorias</a></li>
+                                                    <li><a href="/Producto/">Listado de Productos</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Seguimiento de Pedidos<b class="caret"></b></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/Seguimiento/">Listado de Pedido</a></li>
+                                                </ul>
+                                            </li>
+                                        <li>
+                                            <a class="login" href="#" rel="nofollow" title="Entrar a tu cuenta de cliente">
+                                                Salir
+                                            </a>
+                                        </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </nav>
+            </div>
+
+            <div class="row">
+                <div class="well">
+                    <div class="col-sm-4 col-sm-offset-4">
+                        <form id="searchbox" method="get" action="#">
+                            <input class="form-control" type="text" id="search_query_top" name="search_query_top" placeholder="Buscar" autocomplete="off">
+                            <button type="submit" class="btn btn-default" style="position: absolute; z-index: 1000; right: 0; top: 0; ">
+                                <span>Buscar</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+				
+				
+				
+				
+<div class="well">
+    <ol class="breadcrumb">
+        <li><a href="/Seguimiento/">Seguimiento de Pedidos</a></li>
+        <li class="text-muted">Pedido Número 7</li>
+    </ol>
+</div>
+<div class="well">
+
+    <div class="form-group">
+        <h2>Estados</h2>
+        <label id="4" class="label label-primary">1. No Pagado</label>
+        <label id="4" class="label label-primary">2. Pagado</label>
+        <label id="5" class="label label-danger">3. Aceptado</label>
+        <label id="6" class="label label-default">4. En Produccion</label>
+        <label id="7" class="label label-info">5. En Almacen</label>
+        <label id="8" class="label label-warning">6. En Transporte</label>
+        <label id="9" class="label label-success">7. Entregado</label>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Código de Pedido</label>
+            <input id="txtIdPedido" type="text" class="form-control" disabled value='7' />
+        </div>
+        <div class="form-group">
+            <label>Cliente</label>
+            <input type="text" class="form-control" disabled value='NombreAdmin APAdmin AMAdmin' />
+        </div>
+        <div class="form-group">
+            <label>Distrito</label>
+            <input type="text" class="form-control" disabled  value="Bellavista" />
+        </div>
+        <div class="form-group">
+            <label>Tipo de Pago</label>
+            <input type="text" class="form-control" disabled value="Tarjeta de Credito" />
+        </div>
+
+        <table id="idDetallePedido" class="table table-bordered table-striped table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>ID Producto</th>
+                    <th>Nombre</th>
+                    <th>Precio Vendido</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td><img src="../../imagenes/productosimg/CervezaBarenaCaja.jpg" width="80" height="50" /></td>
+                        <td> 1</td>
+                        <td> CAJA 12 UNIDADESs</td>
+                        <td> 56,65</td>
+                        <td> 5</td>
+                        <td>283,25</td>
+                    </tr>
+                    <tr>
+                        <td><img src="../../imagenes/productosimg/CervezaBrahmaCaja.jpg" width="80" height="50" /></td>
+                        <td> 2</td>
+                        <td> CAJA 12 UNIDADES</td>
+                        <td> 56,65</td>
+                        <td> 2</td>
+                        <td>113,30</td>
+                    </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5">Sub total</th>
+                    <th>396,55</th>
+                </tr>
+                <tr>
+                    <th colspan="5">IGV</th>
+                    <th>63,44</th>
+                </tr>
+                <tr>
+                    <th colspan="5">Total</th>
+                    <th>459,99</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Fecha Pedido</label>
+            <input type="text" class="form-control" disabled value="15/06/2017 23:00:18" />
+        </div>
+
+        <div class="form-group">
+            <label>Fecha de Entrega</label>
+            <input type="text" class="form-control" disabled value="16/06/2017 0:00:00" />
+        </div>
+
+        <div class="form-group">
+            <label>Precio Total del Pedido</label>
+            <input type="text"  class="form-control" disabled value="459,99" />
+        </div>
+
+        <div class="form-group">
+            <label>Observación del Cliente</label>
+            <input type="text" class="form-control" disabled value="Nota" />
+        </div>
+
+        <input type="hidden" value="No pagado" id="estadofinal" />
+
+        <div class="form-group">
+            <label>Estado del Pedido</label>
+                <a class="btn btn-primary btn-xs">No pagado</a>
+        </div>
+
+        <div class="form-group">
+            <a id="btnupestado" href="/Seguimiento/" class="btn btn-primary btn-block">Continuar al siguiente estado</a>
+        </div>
+        
+        <div class="form-group">
+            <div id="btnRechazar" style="display:none;">
+                <a href="/Seguimiento/" class="btn btn-danger btn-block">Rechazar Pedido</a>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+				
+				
+				
+
+            </div>
+            
+        </div>
+    </div>
+    
+    <footer class="well">
+            <div class="col-sm-3">
+                <h4>Información</h4>
+                <ul>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Información de Delivery</a></li>
+                    <li><a href="#">Política</a></li>
+                    <li><a href="#">Términos &amp; Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Servicio al Cliente</h4>
+                <ul>
+                    <li><a href="#">Contáctenos</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Mapa del Sitio</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Extras</h4>
+                <ul>
+                    <li><a href="#">Vouchers de Regalo</a></li>
+                    <li><a href="#">Afiliados</a></li>
+                    <li><a href="#">Especiales</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h4>Mi Cuenta</h4>
+                <ul>
+                    <li><a href="#">Mi Cuenta</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+    </footer>
+
+    <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <script src="../../Scripts/bootstrap.js"></script>
+    <script src="../../Content/js/funciones.js"></script>
+
+</body>
+</html>
